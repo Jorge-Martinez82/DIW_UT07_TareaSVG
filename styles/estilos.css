@@ -1,0 +1,263 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales en version movil siguiendo mobile first*/
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+main {
+    text-align: justify;
+}
+
+section {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+footer {
+    background-color: #303030;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    max-width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.web_adoptame {
+    border-radius: 20px;
+    border: 2px solid #4F42E1;
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: black;
+    transition: background-color 300ms, color 300ms, transform 0.8s ease;
+    text-decoration: none;
+}
+
+.web_adoptame:hover {
+    background-color: #4F42E1;
+    color: white;
+    transform: scale(1.20);
+}
+
+.contenedor_bienvenida {
+    background: #CBABD4 url("../assets/img/huellas.png") no-repeat center center;
+    background-size: cover;
+    width: 100vw;
+    min-height: 70vh;
+    margin: 0;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.articulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    gap: 2rem;
+}
+
+.contenedor_galeria {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+}
+
+.galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+
+/* Responsive version escritorio */
+@media (min-width: 481px) {
+    section {
+        padding: 4rem 2rem;
+    }
+
+    .articulo {
+        max-width: 70vw;
+        padding: 0 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        max-width: 800px;
+    }
+
+    .logo p {
+        font-size: 1.2rem;
+    }
+
+    .galeria {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: end;
+        gap: 10rem;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem 2rem;
+    }
+}
+
+/* Animaciones:*/
+
+/* Al menos una imagen debe tener una animación propia usando stroke-dasharray y stroke-dashoffset para un efecto de dibujo progresivo.*/
+#gato_dibujo-progresivo path,
+#gato_dibujo-progresivo line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dibujar 10s ease forwards;
+}
+@keyframes dibujar {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Animación keyframes en algún elemento SVG (puede ser un parpadeo de ojos, movimiento de una cola, etc.).*/
+.perro:hover #perro-cola {
+    transform-origin: bottom center;
+    animation: mover-cola 0.3s ease-in-out infinite alternate;
+}
+@keyframes mover-cola {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+/* Efecto de entrada en la galería de mascotas usando @keyframes y transform.*/
+.conejo {
+    opacity: 0;
+    animation: entrada-conejo 2s ease-out forwards;
+}
+@keyframes entrada-conejo {
+    0% {
+        transform: scale(2, 2);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Transiciones suaves para efectos al pasar el cursor sobre elementos interactivos.*/
+.tortuga svg {
+    transition: filter 0.8s ease, transform 0.8s ease;
+    transform: scale(1);
+    }
+.tortuga:hover svg {
+    filter: brightness(1.5);
+    transform: scale(1.10);
+    }
+
